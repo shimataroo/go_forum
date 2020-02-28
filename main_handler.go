@@ -1,7 +1,7 @@
 package main
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 
 	"github.com/shimataroo/goforum/data"
@@ -21,7 +21,7 @@ func index(writer http.ResponseWriter, request *http.Request) {
 func signupAccount(writer http.ResponseWriter, request *http.Request) {
 	err := request.ParseForm()
 	if err != nil {
-		log.Fatal("err")
+		fmt.Println("errr")
 	}
 	user := data.User{
 		Name:     request.PostFormValue("name"),
@@ -29,7 +29,7 @@ func signupAccount(writer http.ResponseWriter, request *http.Request) {
 		Password: request.PostFormValue("password"),
 	}
 	if err := user.Create(); err != nil {
-		log.Fatal("err")
+		panic(err)
 	}
 	http.Redirect(writer, request, "/login", 302)
 }
