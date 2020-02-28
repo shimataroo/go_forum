@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"text/template"
 
-	"github.com/shimataroo/goforum/data"
+	"github.com/shimataroo/goforum_new/data"
 )
 
 func generateHTML(writer http.ResponseWriter, data interface{}, filenames ...string) {

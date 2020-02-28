@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/shimataroo/goforum/data"
+	"github.com/shimataroo/goforum_new/data"
 )
 
 func login(writer http.ResponseWriter, request *http.Request) {

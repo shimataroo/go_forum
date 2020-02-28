@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/shimataroo/goforum/data"
+	"github.com/shimataroo/goforum_new/data"
 )
 
 func mypage(writer http.ResponseWriter, request *http.Request) {
