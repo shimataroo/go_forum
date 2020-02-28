@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/shimataroo/goforum",
+	"ImportPath": "github.com/shimataroo/goforum_new",
 	"GoVersion": "go1.13",
 	"GodepVersion": "v80",
 	"Deps": [
@@ -17,6 +17,10 @@
 			"ImportPath": "github.com/lib/pq/scram",
 			"Comment": "v1.3.0-4-g9eb3fc8",
 			"Rev": "9eb3fc897d6fd97dd4aad3d0404b54e2f7cc56be"
+		},
+		{
+			"ImportPath": "github.com/shimataroo/goforum/data",
+			"Rev": "5cd0fffbd2799022d761038973a1f1aaec2039e5"
 		}
 	]
 }

@@ -8,13 +8,16 @@ import (
 )
 
 func index(writer http.ResponseWriter, request *http.Request) {
-	threads, err := data.Threads()
-	_, err = session(writer, request)
-	if err != nil {
-		generateHTML(writer, threads, "layout", "public_navbar", "index")
-	} else {
-		generateHTML(writer, threads, "layout", "private_navbar", "index")
-	}
+	/*
+		threads, err := data.Threads()
+		_, err = session(writer, request)
+		if err != nil {
+			generateHTML(writer, threads, "layout", "public_navbar", "index")
+		} else {
+			generateHTML(writer, threads, "layout", "private_navbar", "index")
+		}
+	*/
+	generateHTML(writer, nil, "layout", "private_navbar", "index")
 }
 
 func signupAccount(writer http.ResponseWriter, request *http.Request) {
