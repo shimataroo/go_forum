@@ -13,7 +13,7 @@ create table users (
 
 create table sessions (
   id         serial primary key,
-  uuid       varchar(64) not null unique,
+  uuid       varchar(64) not null,
   email      varchar(255) not null,
   user_id    integer references users(id)  
 );
