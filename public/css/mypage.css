@@ -1,0 +1,11 @@
+.profile_image {
+    max-width: 330px;
+    max-height: 800px;
+    padding: 40px;
+    margin: 0 auto;
+  }
+
+.user_info {
+    padding: 30px;
+    margin: 0 auto;
+}
