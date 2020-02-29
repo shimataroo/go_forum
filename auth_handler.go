@@ -21,7 +21,7 @@ func authenticate(writer http.ResponseWriter, request *http.Request) {
 	if err != nil {
 
 	}
-	if user.Password == request.PostFormValue("password") {
+	if user.Password == data.Encrypt(request.PostFormValue("password")) {
 		settion, err := user.CreateSettion()
 		if err != nil {
 			fmt.Println(err)

@@ -1,11 +1,11 @@
 package data
 
 import (
+	"crypto/sha1"
 	"database/sql"
 	"fmt"
 	"log"
 	"math/rand"
-	"os"
 
 	_ "github.com/lib/pq"
 )
@@ -14,11 +14,16 @@ var Db *sql.DB
 
 func init() {
 	var err error
-	//Db, err = sql.Open("postgres", "dbname=gochat sslmode=disable")
-	Db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
+	Db, err = sql.Open("postgres", "dbname=gochat sslmode=disable")
+	// Db, err = sql.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		panic(err)
 	}
+	return
+}
+
+func Encrypt(plaintext string) (cryptext string) {
+	cryptext = fmt.Sprintf("%x", sha1.Sum([]byte(plaintext)))
 	return
 }
 

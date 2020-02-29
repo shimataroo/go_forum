@@ -23,7 +23,7 @@ func (user *User) Create() (err error) {
 	}
 	defer stmt.Close()
 
-	err = stmt.QueryRow(createUUID(), user.Name, user.Email, user.Password).Scan(&user.Id, &user.Uuid)
+	err = stmt.QueryRow(createUUID(), user.Name, user.Email, Encrypt(user.Password)).Scan(&user.Id, &user.Uuid)
 	return
 }
 
