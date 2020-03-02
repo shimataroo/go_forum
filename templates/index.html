@@ -1,18 +1,26 @@
 {{ define "content" }}
 
 <p class="lead">
-  <font size="5">スレッド一覧</font>
+  <font size="6">スレッド一覧</font>
 </p>
 
 {{ range . }}
   <div class="card">
     <div class="card-header">
-     <font size="5">{{ .Topic }}</font>
+    <font size="6">{{ .Topic }}</font>
     </div>
      <div class="card-body p-2">
-       開始ユーザ : {{ .User.Name }} - 投稿数 {{ .NumReplies }}
+      <div>
+       <font size="4">開始ユーザ : {{ .User.Name }} - 投稿数 {{ .NumReplies }}</font>
+      </div>
       <div class="pull-right">
-        <a href="/thread/read?id={{.Uuid }}">もっと読む</a>
+        <font size="4"><a href="/thread/read?id={{.Uuid }}">もっと読む</a></font>
+        <form role="form" action="/thread/delete" method="post" style="display: inline">
+          <input type="hidden" name="del_uuid" value="{{.Uuid}}">
+          <input type="hidden" name="del_uname" value="{{.User.Name}}">
+          <button class="btn btn-danger pull-right delbutton" type="submit">スレッドの削除</button>
+        </form>
+      </div>
       </div>
     </div>
   </div>

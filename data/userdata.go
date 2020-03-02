@@ -72,7 +72,7 @@ func UserByEmail(email string) (user User, err error) {
 
 func (session *Session) User() (user User, err error) {
 	user = User{}
-	err = Db.QueryRow("SELECT id, uuid, name, email FROM users WHERE id = $1", session.UserId).
+	err = Db.QueryRow("select id, uuid, name, email FROM users WHERE id = $1", session.UserId).
 		Scan(&user.Id, &user.Uuid, &user.Name, &user.Email)
 	return
 }

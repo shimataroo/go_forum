@@ -79,3 +79,14 @@ func postThread(writer http.ResponseWriter, request *http.Request) {
 		http.Redirect(writer, request, url, 302)
 	}
 }
+
+func deleteThread(writer http.ResponseWriter, request *http.Request) {
+	_, id := data.ReadSession()
+	user, _ := data.UserNameById(id)
+	del_uuid := request.PostFormValue("del_uuid")
+	del_uname := request.PostFormValue("del_uname")
+	if user.Name == del_uname {
+		data.DeleteThread(del_uuid)
+	}
+	http.Redirect(writer, request, "/", 302)
+}

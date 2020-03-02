@@ -33,6 +33,7 @@ func main() {
 	mux.HandleFunc("/thread/create", createThread)
 	mux.HandleFunc("/thread/post", postThread)
 	mux.HandleFunc("/thread/read", readThread)
+	mux.HandleFunc("/thread/delete", deleteThread)
 
 	// mypage_handler
 	mux.HandleFunc("/mypage", mypage)

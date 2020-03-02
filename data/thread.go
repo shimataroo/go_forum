@@ -99,10 +99,21 @@ func (thread *Thread) User() (user User) {
 	return
 }
 
-// Get the user who wrote the post
 func (post *Post) User() (user User) {
 	user = User{}
 	Db.QueryRow("SELECT id, uuid, name, email FROM users WHERE id = $1", post.UserId).
 		Scan(&user.Id, &user.Uuid, &user.Name, &user.Email)
+	return
+}
+
+func DeleteThread(del_uuid string) (err error) {
+	thread := Thread{}
+	err = Db.QueryRow("select id, uuid, topic, user_id from threads where uuid = $1", del_uuid).
+		Scan(&thread.Id, &thread.Uuid, &thread.Topic, &thread.UserId)
+	if err != nil {
+		panic(thread.Uuid)
+	}
+	Db.QueryRow("delete from posts where thread_id = $1", thread.Id)
+	Db.QueryRow("delete from threads where uuid = $1", del_uuid)
 	return
 }
